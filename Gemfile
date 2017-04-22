@@ -43,8 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'polymer-rails'
-
 gem 'execjs'
 
-
+gem 'puma'

@@ -1,0 +1,22 @@
+<dom-module id="orbit-satellite">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width:100%;
+        height:100%;
+        position:absolute;
+		top:0;
+		left:0;
+      }
+      div > ::slotted(*) {
+        position:relative;
+        margin:auto;
+        top:0px;
+        height:auto;
+      }
+    </style>
+    <slot></slot>
+  </template>
+  <script src="orbit-satellite.js"></script>
+</dom-module>

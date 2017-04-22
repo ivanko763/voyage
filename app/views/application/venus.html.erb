@@ -1,0 +1,36 @@
+
+<turn-screen class="planet1Screen" rotation-value="300" inst="Mercury">
+   <%= image_tag("mercury-small.png", :alt => "Mercury") %>
+</turn-screen>
+
+<turn-screen class="planet2Screen" rotation-value="100" inst="Earth">
+   <%= image_tag("earth-small.png", :alt => "Earth") %>
+</turn-screen>
+
+<turn-screen class="planet3Screen" rotation-value="-300" inst="Mars">
+   <%= image_tag("mars-small.png", :alt => "Mars") %>
+</turn-screen>
+
+<div class="doctor"><%= link_to "See a doctor", doctor_path %></div>
+
+<div class="horizon">
+  <turn-screen class="mainScreen" rotation-value="-8" inst="Venus">
+	 <div class="mainNav">
+	   <%= image_tag("venus.png", :alt => "Venus", class: "mainPlanet") %>
+	   <orbit-satellite satellite-position="-35" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to "Mercury", mercury_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="0" satellite-scale="1" orbit-height="180" class="earth"><%= link_to "Earth", earth_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="35" satellite-scale="1" orbit-height="180" class="mars"><%= link_to "Mars", mars_path %></orbit-satellite>
+	 </div>
+  </turn-screen>
+
+  <% for i in 1..8 %>
+  <div class="logoWrapper">
+	<turn-screen class="logo" rotation-value="<%= rand(50...100) * (rand(0...2)*2-1) %>" inst="Logo <%=i%>">
+	   <orbit-satellite satellite-position="<%=rand(0...360)-180%>" satellite-scale="0.<%=rand(1...4)%>" orbit-height="<%=rand(200...400)%>">
+		  <%= image_tag("logo.png", :alt => "Logo " + i.to_s) %>
+	   </orbit-satellite>
+	</turn-screen>
+  </div>
+  <% end %>
+  
+</div>

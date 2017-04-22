@@ -1,0 +1,42 @@
+
+<!--<turn-screen class="planet1Screen" rotation-value="300" inst="Mercury">
+   <%= image_tag("mercury-small.png", :alt => "Mercury") %>
+</turn-screen>
+
+<turn-screen class="planet2Screen" rotation-value="100" inst="Venus">
+   <%= image_tag("venus-small.png", :alt => "Venus") %>
+</turn-screen>
+
+<turn-screen class="planet3Screen" rotation-value="-300" inst="Earth">
+   <%= image_tag("earth-small.png", :alt => "Earth") %>
+</turn-screen>-->
+
+<div class="doctor"><%= link_to "Home", earth_path %></div>
+
+<div class="doctorsHorizon">
+  <turn-screen class="mainScreen" rotation-value="-8" inst="Doctor">
+	 <div class="mainNav">
+	   <%= image_tag("doctor.png", :alt => "Doctor", class: "mainPlanet") %>
+	 </div>
+  </turn-screen>
+
+  <turn-screen class="mainScreen" rotation-value="-2" inst="Doctor">
+	 <div class="mainNav">
+	   <orbit-satellite satellite-position="-45" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to "Mercury", mercury_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="-15" satellite-scale="1" orbit-height="180" class="venus"><%= link_to "Venus", venus_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="15" satellite-scale="1" orbit-height="180" class="earth"><%= link_to "Earth", earth_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="45" satellite-scale="1" orbit-height="180" class="mars"><%= link_to "Mars", mars_path %></orbit-satellite>
+	 </div>
+  </turn-screen>
+
+  <% for i in 1..16 %>
+  <div class="logoWrapper">
+	<turn-screen class="logo" rotation-value="<%= rand(10...150) * (rand(0...2)*2-1) %>" inst="Logo <%=i%>">
+	   <orbit-satellite satellite-position="<%=rand(0...360)-180%>" satellite-scale="0.<%=rand(1...4)%>" orbit-height="<%=rand(0...200) %>">
+		  <%= image_tag("logo.png", :alt => "Logo " + i.to_s) %>
+	   </orbit-satellite>
+	</turn-screen>
+  </div>
+  <% end %>
+  
+</div>

@@ -1,9 +1,32 @@
 <dom-module id="turn-screen">
   <link rel="stylesheet" href="turn-screen.css" />
   <template>
-
-    <h2>Turn screen</h2>
+    <style>
+      :host {
+        /*display: table;*/
+        display: block;
+        width:100%;
+        height:100%;
+      }
+      div > ::slotted(*) {
+        width:100%;
+        height:100%;
+        display:block;
+      }
+      div > ::slotted(*) img {
+		opacity:1!important;
+      }
+      div{
+        width:100%;
+        height:100%;
+        /*display:table-cell;*/
+        vertical-align:middle;
+        text-align:center;
+      }
+    </style>
+    <div>
+      <slot></slot>
+    </div>
   </template>
-
   <script src="turn-screen.js"></script>
 </dom-module>
