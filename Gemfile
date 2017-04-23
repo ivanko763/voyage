@@ -52,9 +52,6 @@ group :development, :test do
   gem 'spring'
 end
 
-gem 'execjs'
-
 gem 'puma'
 
-gem 'rails_12factor'
 

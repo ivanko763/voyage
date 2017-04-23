@@ -6,8 +6,8 @@
         width:100%;
         height:100%;
         position:absolute;
-		top:0;
-		left:0;
+        top:0;
+        left:0;
       }
       div > ::slotted(*) {
         position:relative;
@@ -18,5 +18,37 @@
     </style>
     <slot></slot>
   </template>
-  <script src="orbit-satellite.js"></script>
+  <script>
+    class OrbitSatellite extends Polymer.Element {
+      static get is() { return 'orbit-satellite'; }
+      static get properties() {
+        return {
+          satelliteScale: {
+            type: String,
+            notify: true
+          },
+          orbitHeight: {
+            type: String,
+            notify: true
+          },
+          satellitePosition: {
+            type: String,
+            notify: true
+          }
+        };
+      }
+        
+      connectedCallback() {
+        super.connectedCallback();
+        console.log("orbitHeight:", this.orbitHeight);
+        var satellite = this.firstElementChild;
+        var orbitH = this.orbitHeight;
+        var satelliteS = this.satelliteScale;
+        var satelliteP = this.satellitePosition;
+        satellite.style.transform = 'translateY(-'+orbitH+'px) scale('+satelliteS+')';
+        this.style.transform = 'rotate('+satelliteP+'deg)';
+      } 
+    }
+    window.customElements.define(OrbitSatellite.is, OrbitSatellite);
+  </script>
 </dom-module>
