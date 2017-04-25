@@ -8,7 +8,7 @@ Current project is an example of Reusable Component and Functional Programming.
 Deployer to [Heroku](http://heroku.com) hosting (free plan).
 
 ## Notes for sounce code
-- 2 components acually used: [turn-screen](https://github.com/ivanko763/turn-screen), orbit-satellite
+- 2 components actually used: [turn-screen](https://github.com/ivanko763/turn-screen), orbit-satellite
 - Polymer 2 uses it's own loader, so I don't use assets for the framework. Polymer 2 load from public folder.
 - All componet code should be placed in one file in assets/components/<component-name> folder
 - Component code must be included in layout using html_import_tag helper
