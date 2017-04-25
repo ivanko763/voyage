@@ -1,6 +1,6 @@
 # voyage
 ## Rails 4 + Polymer 2 component.
-Built in scope of MDLive's "one hour per work day" program.
+MDLive in open Space.
 Current project is an example of Reusable Component and Functional Programming.
 
 ## Demo
