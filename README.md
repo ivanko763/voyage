@@ -5,7 +5,7 @@ Current project is an example of Reusable Component and Functional Programming.
 
 ## Demo
 [Working example here](https://rocky-castle-48449.herokuapp.com/earth)
-Deployer to [Heroku](http://heroku.com) hosting (free plan).
+Deployed to [Heroku](http://heroku.com) hosting (free plan).
 
 ## Notes for sounce code
 - 2 components actually used: [turn-screen](https://github.com/ivanko763/turn-screen), orbit-satellite
