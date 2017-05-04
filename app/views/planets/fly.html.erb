@@ -6,11 +6,13 @@
 	</turn-screen>
   </div>
   <% @planets.each do |planet| %>
-  <div class="planetBox">
-  <turn-screen rotation-value="<%= rand(200...400) * (rand(0...2)*2-1) %>" inst="Mercury">
-	 <%= image_tag("planet-template.png", :alt => "Mercury", :style => 'background-color:rgb('+planet.color+')') %>
-  </turn-screen>
-  </div>
+	<% if planet.name != @planet.name %>
+	  <div class="planetBox">
+		<turn-screen rotation-value="<%= rand(200...400) * (rand(0...2)*2-1) %>" inst="Mercury">
+		   <%= image_tag("planet-template.png", :alt => "Mercury", :style => 'background-color:rgb('+planet.color+')') %>
+		</turn-screen>
+	  </div>
+	<% end %>
   <% end %>
 </div>
 
@@ -22,12 +24,14 @@
 	 <div class="mainNav">
 	   <%= image_tag("planet-template-big.png", :alt => "Earth", class: "mainPlanet", :style => 'background-color:rgb('+@planet.color+')') %>
 
-	   <orbit-satellite satellite-position="<%= - 10 - (@num_of_planets-2)*5 %>" satellite-scale="1" orbit-height="180" class="earth"><%= link_to "Earth", earth_path %></orbit-satellite>
+	   <orbit-satellite satellite-position="<%= - 10 - (@num_of_planets-3)*5 %>" satellite-scale="1" orbit-height="180" class="earth"><%= link_to "Earth", earth_path %></orbit-satellite>
 
        <% i=0 %>
        <% @planets.each do |planet| %>
-         <orbit-satellite satellite-position="<%= i*10 - (@num_of_planets-2)*5 %>" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to planet.name, fly_path(planet), {:style => 'background-color:rgb('+planet.color+')'} %></orbit-satellite>
+	     <% if planet.name != @planet.name %>
+		   <orbit-satellite satellite-position="<%= i*10 - (@num_of_planets-3)*5 %>" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to planet.name, fly_path(planet), {:style => 'background-color:rgb('+planet.color+')'} %></orbit-satellite>
          <% i=i+1 %>
+		 <% end %>
        <% end %>
 	   
 	 </div>
