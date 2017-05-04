@@ -1,0 +1,38 @@
+<%= form_for(@planet) do |f| %>
+  <% if @planet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@planet.errors.count, "error") %> prohibited this planet from being saved:</h2>
+
+      <ul>
+      <% @planet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field colorpicker">
+    <%= f.label :color %><br />
+	<% for i in 0..5 %>
+	  <% for j in 0..5 %>
+		<% for k in 0..5 %>
+		  <label class="cplabel" style='background:rgb(<%=i*50%>,<%=j*50%>,<%=k*50%>)'> <%= f.radio_button :color, (i*50).to_s+','+(j*50).to_s+','+(k*50).to_s %> </label>
+		<% end %>
+	  <% end %>
+	<% end %>
+	<div style="clear:both"></div>
+  </div>  
+  
+  <div class="field">
+    <%= f.label :satellites %><br>
+    <%= f.number_field :satellites %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
