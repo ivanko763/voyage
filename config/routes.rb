@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :planets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,6 +14,9 @@ Rails.application.routes.draw do
   get 'mars' => 'application#mars'
   get 'venus' => 'application#venus'
   get 'doctor' => 'application#doctor'
+
+  get 'planets/:id/fly' => 'planets#fly', as: :fly
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

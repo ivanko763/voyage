@@ -1,15 +1,13 @@
 
-<turn-screen class="planet1Screen" rotation-value="300" inst="Mercury">
-   <%= image_tag("mercury-small.png", :alt => "Mercury") %>
-</turn-screen>
-
-<turn-screen class="planet2Screen" rotation-value="100" inst="Venus">
-   <%= image_tag("venus-small.png", :alt => "Venus") %>
-</turn-screen>
-
-<turn-screen class="planet3Screen" rotation-value="-300" inst="Mars">
-   <%= image_tag("mars-small.png", :alt => "Mars") %>
-</turn-screen>
+<div class="planetList">
+  <% @planets.each do |planet| %>
+  <div class="planetBox">
+  <turn-screen rotation-value="<%= rand(200...400) * (rand(0...2)*2-1) %>" inst="Mercury">
+	 <%= image_tag("planet-template.png", :alt => "Mercury", :style => 'background-color:rgb('+planet.color+')') %>
+  </turn-screen>
+  </div>
+  <% end %>
+</div>
 
 <div class="doctor"><%= link_to "See a doctor", doctor_path %></div>
 <div class="srcCode"><a href="https://github.com/ivanko763/voyage" target="_blank">Source Code</a></div>
@@ -18,9 +16,13 @@
   <turn-screen class="mainScreen" rotation-value="-8" inst="Earth">
 	 <div class="mainNav">
 	   <%= image_tag("earth.png", :alt => "Earth", class: "mainPlanet") %>
-	   <orbit-satellite satellite-position="-35" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to "Mercury", mercury_path %></orbit-satellite>
-	   <orbit-satellite satellite-position="0" satellite-scale="1" orbit-height="180" class="venus"><%= link_to "Venus", venus_path %></orbit-satellite>
-	   <orbit-satellite satellite-position="35" satellite-scale="1" orbit-height="180" class="mars"><%= link_to "Mars", mars_path %></orbit-satellite>
+	   
+       <% i=0 %>
+       <% @planets.each do |planet| %>
+         <orbit-satellite satellite-position="<%= i*10 - (@num_of_planets-1)*5 %>" satellite-scale="1" orbit-height="180" class="mercury"><%= link_to planet.name, fly_path(planet), {:style => 'background-color:rgb('+planet.color+')'} %></orbit-satellite>
+         <% i=i+1 %>
+       <% end %>
+	   
 	 </div>
   </turn-screen>
 
