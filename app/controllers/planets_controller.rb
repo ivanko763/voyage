@@ -12,9 +12,6 @@ class PlanetsController < ApplicationController
 	@num_of_planets = @planets.length
 	@planet = Planet.find(params[:id])
     render :layout => "space"
-	p "----------------"
-	p @planet
-	p "----------------"
   end
 
   # GET /planets/1

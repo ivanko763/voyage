@@ -54,4 +54,26 @@ end
 
 gem 'puma'
 
+group :test do
+  gem 'spinach-rails'
+  gem 'rspec-rails'
+
+  gem 'guard-spinach'
+  gem 'guard-rspec'
+
+  gem 'launchy'
+  gem 'database_cleaner'
+
+  gem 'minitest', require: 'minitest/spec'
+  gem 'capybara', github: 'teamcapybara/capybara'
+  gem 'spinach'
+  gem 'spinach-rails'
+  gem 'headless'
+
+  #gem 'capybara-webkit'
+  gem 'selenium-webdriver'
+  #gem 'chromedriver-helper'
+  gem 'firefox'
+
+end
 
